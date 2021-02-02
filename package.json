@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jimdiew/ProyectoTesting/issues"
   },
-  "homepage": "https://github.com/jimdiew/ProyectoTesting#readme"
+  "homepage": "https://github.com/jimdiew/ProyectoTesting#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.8"
+  }
 }
