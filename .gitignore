@@ -10,8 +10,9 @@ node_modules
 # Ignore SASS config files
 .sass-cache
 
-Visutal studio code 
+# Ignore VSCode files
+.vscode
 
-# Ignore package-lock.json
+# Ignore package-lock.json file
 /package-lock.json
-package-lock.json 
+
