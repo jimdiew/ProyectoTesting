@@ -1,19 +1,20 @@
-//Builder API
+//Selenium test
+require('geckodriver');
 const webdriver = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
+const {Builder, By, Key, until} = webdriver;
+
+
+const firefox = require('selenium-webdriver/firefox');
 
 let driver = new webdriver.Builder()
-    .forBrowser('chrome')
+    .forBrowser('firefox')
     .build();
 
-//Selenium test
-const {Builder, By, Key, until} = require('selenium-webdriver');
-
 (async function example() {
-  let driver = await new Builder().forBrowser('chrome').build();
+  let driver = await new Builder().forBrowser('firefox').build();
   try {
     await driver.get('https://www.olenick.com/');
-    await driver.findElement(By.id('#menu-item-5398')).sendKeys('webdriver', Key.RETURN);
+    await driver.findElement(By.className("menu-item")).sendKeys('webdriver', Key.RETURN);
     await driver.wait(until.titleIs('webdriver - IT Projects'), 1000);
   } finally {
     await driver.quit();
