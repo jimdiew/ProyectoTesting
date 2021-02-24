@@ -1,10 +1,13 @@
 const { setWorldConstructor } = require('cucumber')
-const  seleniumWebdriver = require('selenium-webdriver');
+const {Builder, Capabilities} = require('selenium-webdriver');
 const firefox = require('selenium-webdriver/firefox');
  
 class CustomWorld {
   constructor() {
-    this.driver = new seleniumWebdriver.Builder()
+    const caps = new Capabilities();
+    caps.setPageLoadStrategy("eager");
+    
+    this.driver = new Builder().withCapabilities(caps)
     .forBrowser('firefox')
     .build();
 
