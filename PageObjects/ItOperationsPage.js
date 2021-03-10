@@ -2,8 +2,7 @@ import Subpage from './Subpage';
 
 class ItOperationsPage extends Subpage {
     constructor(webdriver){  
-        super (webdriver, 'https://www.olenick.com/service-categories/it-operations/', 
-        'IT Operations - Olenick Service Pillars', 'IT Operations');
+        super (webdriver, 'https://www.olenick.com/service-categories/it-operations/', title, heroTitle);  
     }
-    get heroTitle() { throw new Error('Hero title not implemented. This method is abstract'); }
+
 }
