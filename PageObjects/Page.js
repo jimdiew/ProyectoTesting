@@ -1,30 +1,26 @@
-export default class Page {
-    constructor(driver, url, title, heroTitle){
-      this.driver = driver ;  
-      this._url = url;
-      this._heroTitle = heroTitle;
-      this._title = title;   
-    }
-   // get url() { return url }
-  //  get title() { return $('title') }
+module.exports = class Page {
+  constructor(driver, url, title, heroTitle) {
+    this.driver = driver;
+    this._url = url;
+    this._heroTitle = heroTitle;
+    this._title = title;
+  }
 
-    //ERROR MESSAGE IF HERO TITLE IS NOT FOUND
-    get heroTitle() { throw new Error('Hero title not implemented. This method is abstract'); }
+  // ERROR MESSAGE IF HERO TITLE IS NOT FOUND
+  // eslint-disable-next-line class-methods-use-this
+  get heroTitle() { throw new Error('Hero title not implemented. This method is abstract'); }
 
-  open(){
-        this.driver.get (this._url); 
-    }
+  open() {
+    return this.driver.get(this._url);
+  }
 
-    async isOpen () {
-      const titlePromise = this.driver.getTitle();
-      const urlPromise =  this.driver.getCurrentUrl();
-      assert.strictEqual(await titlePromise, this._title);
-      assert.strictEqual(await urlPromise, this._url);
+  async isOpen() {
+    const titlePromise = this.driver.getTitle();
+    const urlPromise = this.driver.getCurrentUrl();
+    const heroTitlePromise = this.heroTitle.getText();
 
-      return this._url === urlPromise 
-       && this._heroTitle === await this.driver.findElement({id: 'menu-main-menu'})
-       && this._title === titlePromise;
-    }
-
-}
-
+    return this._url === await urlPromise
+       && this._heroTitle === await heroTitlePromise
+       && this._title === await titlePromise;
+  }
+};

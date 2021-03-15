@@ -1,8 +1,7 @@
-import Subpage from './Subpage';
+const Subpage = require('./Subpage');
 
-class ItOperationsPage extends Subpage {
-    constructor(webdriver){  
-        super (webdriver, 'https://www.olenick.com/service-categories/it-operations/', title, heroTitle);  
-    }
-
-}
+module.exports = class ItOperationsPage extends Subpage {
+  constructor(webdriver) {
+    super(webdriver, 'https://www.olenick.com/service-categories/it-operations/', 'IT Operations - Olenick Service Pillars', 'IT Operations');
+  }
+};
