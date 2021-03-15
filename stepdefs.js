@@ -14,9 +14,9 @@ const PAGE_DICT = {
   'IT Projects': ItProjectsPage,
   'IT Operations': ItOperationsPage,
   'IT Governance': ItGovernancePage,
-  News: NewsPage,
-  Expertise: ExpertisePage,
-  About: AboutUsPage,
+  'News': NewsPage,
+  'Expertise': ExpertisePage,
+  'About': AboutUsPage,
 };
 
 // Given condition //
