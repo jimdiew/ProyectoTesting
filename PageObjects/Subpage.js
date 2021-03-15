@@ -1,9 +1,5 @@
-import Page from './Page';
+const Page = require('./Page');
 
-class Subpage extends Page {
-    constructor(webdriver, url, title, heroTitle){
-        super (webdriver, url, title, heroTitle);    
-    }
-
-    get heroTitle() { return $('.fl-heading-text') }
-}
+module.exports = class Subpage extends Page {
+  get heroTitle() { return this.driver.findElement({ css: '.fl-heading-text' }); }
+};

@@ -1,8 +1,7 @@
-import Subpage from './Subpage';
+const Subpage = require('./Subpage');
 
-class ExpertisePage extends Subpage {
-    constructor(webdriver){
-       super (webdriver, 'https://www.olenick.com/blog/', title, heroTitle);  
-    }
-
-}
+module.exports = class ExpertisePage extends Subpage {
+  constructor(webdriver) {
+    super(webdriver, 'https://www.olenick.com/blog/', 'Olenick Insights and Experience - Explore Our Blog and More', 'Our Expertise');
+  }
+};
