@@ -1,6 +1,6 @@
-const { setWorldConstructor, setDefaultTimeout } = require('cucumber');
+const { setWorldConstructor, setDefaultTimeout } = require('@cucumber/cucumber');
 const { Builder, Capabilities } = require('selenium-webdriver');
-// const firefox = require('selenium-webdriver/firefox');
+require('geckodriver');
 
 class CustomWorld {
   constructor() {

@@ -19,3 +19,5 @@ node_modules
 #Ignore .exe files
 *.exe
 
+#Ignore cucumber report files
+test/report/cucumber_*

@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { Given, When, Then } = require('cucumber');
+const { Given, When, Then } = require('@cucumber/cucumber');
 
 const HomePage = require('./PageObjects/HomePage');
 const ItProjectsPage = require('./PageObjects/ItProjectsPage');

@@ -4,7 +4,9 @@
   "description": "Testing Olenick Project",
   "main": "testolenick.js",
   "scripts": {
-    "test": "cucumber-js --require ./*.js"
+    "lintfix": "node ./node_modules/eslint/bin/eslint.js --fix",
+    "test": "cucumber-js --require ./*.js --parallel 4 --format message:test/report/cucumber_message.ndjson --format html:test/report/cucumber_report.html --format progress",
+    "clean": "rm test/report/cucumber_*"
   },
   "repository": {
     "type": "git",
@@ -17,10 +19,9 @@
   },
   "homepage": "https://github.com/jimdiew/ProyectoTesting#readme",
   "dependencies": {
+    "@cucumber/cucumber": "^7.0.0",
     "@types/cucumber": "^7.0.0",
-    "cucumber": "^6.0.5",
-    "cucumber-assert": "^2.0.1",
-    "geckodriver": "^1.22.1",
+    "geckodriver": "^1.22.2",
     "request": "^2.88.2",
     "selenium-webdriver": "^4.0.0-alpha.8"
   },

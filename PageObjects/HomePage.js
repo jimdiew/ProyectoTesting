@@ -1,6 +1,6 @@
-const Page = require('./Page');
+const PresentationPage = require('./PresentationPage');
 
-module.exports = class HomePage extends Page {
+module.exports = class HomePage extends PresentationPage {
   constructor(webdriver) {
     super(webdriver, 'https://www.olenick.com/', 'Olenick: Global Leaders in Software Testing and Quality Engineering', 'Global Leaders in Software Quality Engineering');
   }
