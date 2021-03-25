@@ -17,7 +17,9 @@ When(/^I filter job openings by "(.*)", "(.*)" city location$/, async function (
 
 // Then Condition //
 Then(/^the number of job openings should be the same as the counter for city "(.*)", "(.*)"$/, async function (city, state) {
-  const jobOpenings = this.page.waitForLocationFilter(city, state);
-  const cityCounter = this.page.locationCounter(city, state);
-  assert.strictEqual((await jobOpenings).length, await cityCounter);
+  const jobOpeningsPromise = this.page.waitForLocationFilter(city, state);
+  const cityCounterPromise = this.page.locationCounter(city, state);
+  const [jobOpenings, cityCounter] = await Promise.allSettled([jobOpeningsPromise, cityCounterPromise]);
+  assert.strictEqual([jobOpenings, cityCounter].find((p) => p.status !== 'fulfilled'), undefined);
+  assert.strictEqual(jobOpenings.value.length, cityCounter.value);
 });
