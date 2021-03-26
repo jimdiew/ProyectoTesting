@@ -3,7 +3,7 @@ const Page = require('./Page');
 const JobOpening = require('./JobOpening');
 
 const PAGE_LOAD_TIMEOUT = 5000;
-const FILTER_TIMEOUT = 3000;
+const FILTER_TIMEOUT = 5000;
 
 module.exports = class JobPortal extends Page {
   constructor(webdriver) {
@@ -32,8 +32,8 @@ module.exports = class JobPortal extends Page {
       let jobs = false;
       try {
         const openings = JobPortal.convertToJobOpenings(await driver.findElements({ className: 'card slide-up-item' }));
-        const cardsAreForeign = await Promise.all(openings.map(async (o) => (await o.geographicLocation()).match(expectedLocation)));
-        jobs = openings && openings.length && cardsAreForeign.every(Boolean) ? openings : false;
+        const cardsAreLocal = await Promise.all(openings.map(async (o) => (await o.geographicLocation()).match(expectedLocation)));
+        jobs = openings && openings.length && cardsAreLocal.every(Boolean) ? openings : false;
       } catch (error) {
         // do nothing
       }

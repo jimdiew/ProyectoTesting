@@ -20,6 +20,8 @@ Then(/^the number of job openings should be the same as the counter for city "(.
   const jobOpeningsPromise = this.page.waitForLocationFilter(city, state);
   const cityCounterPromise = this.page.locationCounter(city, state);
   const [jobOpenings, cityCounter] = await Promise.allSettled([jobOpeningsPromise, cityCounterPromise]);
-  assert.strictEqual([jobOpenings, cityCounter].find((p) => p.status !== 'fulfilled'), undefined);
+  jobOpenings.description = 'Job Openings';
+  cityCounter.description = 'City Counter';
+  assert.deepStrictEqual([jobOpenings, cityCounter].filter((p) => p.status !== 'fulfilled'), []);
   assert.strictEqual(jobOpenings.value.length, cityCounter.value);
 });

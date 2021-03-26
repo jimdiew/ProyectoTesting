@@ -5,7 +5,7 @@
   "main": "testolenick.js",
   "scripts": {
     "lintfix": "node ./node_modules/eslint/bin/eslint.js --fix",
-    "test": "cucumber-js --require ./*.js --parallel 4 --format message:test/report/cucumber_message.ndjson --format html:test/report/cucumber_report.html --format progress",
+    "test": "cucumber-js --require ./*.js --parallel 6 --format message:test/report/cucumber_message.ndjson --format html:test/report/cucumber_report.html --format progress",
     "clean": "rm test/report/cucumber_*"
   },
   "repository": {
